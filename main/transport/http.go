@@ -13,10 +13,11 @@ func NewRouter(db *gorm.DB) *gin.Engine {
 	router := gin.Default()
 	router.Use(ExtraMiddleware())
 
-	consolador:= handler.NuevoHandle(db)
+	controlador:= handler.NuevoHandle(db)
 
 	api:= router.Group("/api")
-	api.GET("/health", consolador.Ping)
+	api.GET("/health", controlador.Ping)
+	api.GET("/licencia/:id", controlador.Ping)
 	return router
 
 }
