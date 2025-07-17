@@ -22,7 +22,7 @@ func NuevoHandle(db *gorm.DB) HandleLME {
 
 
 func (h handleLME) Ping(ctx *gin.Context) {
-	id_li := "1-11111111"
+	id_li := "0-1"
 
 	dto, err := h.service.GetLME(ctx.Request.Context(), id_li)
 	if err != nil {

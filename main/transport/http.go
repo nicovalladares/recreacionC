@@ -17,7 +17,7 @@ func NewRouter(db *gorm.DB) *gin.Engine {
 
 	api:= router.Group("/api")
 	api.GET("/health", controlador.Ping)
-	api.GET("/licencia/:id", controlador.Ping)
+	// api.GET("/licencia/:id", controlador.Ping)
 	return router
 
 }
@@ -25,7 +25,7 @@ func NewRouter(db *gorm.DB) *gin.Engine {
 func ExtraMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		 methods := []string{"GET", "POST", "DELETE"}
-		c.Writer.Header().Set("Access-Control-Allow-Methods", strings.Join(methods, ", "))
+		c.Writer.Header().Set("Access-Control-Allow-Methods", strings.Join(methods, ","))
 
 		if !contains(methods, c.Request.Method) {
 			c.AbortWithStatus(403) 
