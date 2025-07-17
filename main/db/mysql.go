@@ -1,16 +1,17 @@
 package db
 
 import (
-	"database/sql"
 	"fmt"
 
-	_ "github.com/go-sql-driver/mysql"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+	// _ "github.com/go-sql-driver/mysql"
 )
 
 
-func ConnectMySQL(host, port, user, password, dbName string) (*sql.DB, error){
+func ConnectMySQL(host, port, user, password, dbName string) (*gorm.DB, error){
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", user, password, host, port, dbName)
-	db, err := sql.Open("mysql", dsn)
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	
 
 	if err != nil {

@@ -17,7 +17,7 @@ func main(){
 	}
 	fmt.Println("Conectada a MySQL:", err)
 
-	router := transport.NewRouter(db.DB)
+	router := transport.NewRouter(db)
 
 	s := &http.Server{
 		Addr:         ":8080",

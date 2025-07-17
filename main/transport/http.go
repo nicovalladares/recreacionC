@@ -11,6 +11,7 @@ import (
 
 func NewRouter(db *gorm.DB) *gin.Engine {
 	router := gin.Default()
+	router.Use(ExtraMiddleware())
 
 	consolador:= handler.NuevoHandle(db)
 
