@@ -21,7 +21,7 @@ func NewRepoLM(db *gorm.DB) RepoLm {
 
 func (r repoLm) GetLME(ctx context.Context, id string) (models.LmLicencia, error) {
 	var resp models.LmLicencia
-	query := `SELECT id, numero FROM recreacionc.LM_LICENCIA WHERE id = ?`
+	query := `SELECT id, numero FROM LM.LM_LICENCIA WHERE id = ?`
 
 
 	db := r.db.WithContext(ctx)

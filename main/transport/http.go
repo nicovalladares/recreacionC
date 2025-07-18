@@ -17,7 +17,7 @@ func NewRouter(db *gorm.DB) *gin.Engine {
 
 	api:= router.Group("/api")
 	api.GET("/health", controlador.Ping)
-	// api.GET("/licencia/:id", controlador.Ping)
+	api.GET("/licencia/:id", controlador.BuscarLicenciaPorID)
 	return router
 
 }
